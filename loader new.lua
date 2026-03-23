@@ -23,7 +23,7 @@ local LOADERS = {
 local placeId = game.PlaceId
 
 if not LOADERS[placeId] then
-    player:Kick("Wrong Game")
+    player:Kick("Game Not Supported!")
     return
 end
 
@@ -33,13 +33,13 @@ end
 -------------------------
 
 pcall(function()
-    CoreGui:FindFirstChild("KiraKeyScreen"):Destroy()
+    CoreGui:FindFirstChild("SphynKeyUI"):Destroy()
 end)
 
 local TweenService = game:GetService("TweenService")
 
 local keyScreen = Instance.new("ScreenGui")
-keyScreen.Name = "KiraKeyScreen"
+keyScreen.Name = "SphynKeyUI"
 keyScreen.Parent = CoreGui
 keyScreen.ResetOnSpawn = false
 
@@ -123,12 +123,12 @@ button.MouseButton1Click:Connect(function()
 
     if input.Text ~= KEY then
 
-        title.Text = "Wrong Key"
+        title.Text = "Wrong Key!"
         title.TextColor3 = Color3.fromRGB(255,80,80)
 
         task.wait(1)
 
-        player:Kick("Wrong Key")
+        player:Kick("🔐Wrong Key!!🔑")
 
         return
 
